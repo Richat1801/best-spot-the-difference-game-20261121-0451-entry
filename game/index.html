@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twin Vista — Spot the Difference</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main id="app">
+  <header id="topbar">
+    <div id="brand">
+      <h1>Twin Vista</h1>
+      <p id="tagline">Spot the difference — two pictures, a handful of lies.</p>
+    </div>
+    <div id="hud" aria-label="Game status">
+      <span id="hud-scene" class="chip chip-scene">Scene 1</span>
+      <span id="hud-found" class="chip">Found 0 / 8</span>
+      <span id="hud-remain" class="chip chip-remain">8 still hidden</span>
+      <span id="hud-timer" class="chip">Time 3:00</span>
+      <span id="hud-score" class="chip">Score 0</span>
+      <span id="hud-hints" class="chip">Hints 3</span>
+    </div>
+    <div id="controls">
+      <button id="hint-button" type="button">Hint (H) · −50</button>
+      <button id="restart-button" type="button">Restart scene (R)</button>
+    </div>
+  </header>
+
+  <p id="message" role="status">Find every difference before the timer runs out.</p>
+
+  <section id="stage">
+    <canvas id="board" width="1264" height="486" aria-label="Two near-identical pictures side by side. Click a difference on either picture to mark it on both."></canvas>
+    <div id="overlay" hidden>
+      <div id="overlay-card">
+        <h2 id="overlay-title">Scene complete!</h2>
+        <p id="overlay-text"></p>
+        <button id="overlay-button" type="button">Next scene</button>
+      </div>
+    </div>
+  </section>
+
+  <footer id="help">
+    <p>How to play: compare the left picture with the right one. Click any detail that
+    differs — on either side — and a green ring marks it on both. A wrong click costs
+    5 seconds and 25 points. A find earns 100 points and 3 seconds back. Clear all
+    three scenes (8, then 9, then 10 differences) before time runs out.
+    Keys: <strong>H</strong> hint · <strong>R</strong> restart scene · <strong>Enter</strong> continue.</p>
+  </footer>
+</main>
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
